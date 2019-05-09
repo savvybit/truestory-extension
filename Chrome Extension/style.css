@@ -45,11 +45,11 @@
 }
 
 input:checked + .sliderTrueStory {
-  background-color: #2196F3;
+  background-color: #2E7F8A;
 }
 
 input:focus + .sliderTrueStory {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2E7F8A;
 }
 
 input:checked + .sliderTrueStory:before {
@@ -161,3 +161,87 @@ input:checked + .sliderTrueStory:before {
   padding: 10px;
   border-bottom-left-radius: 4%;
 }
+
+.tealTS {
+  color:#2E7F8A;
+  font-weight: 700;
+  background-color: rgba(238, 238, 238, 0.3)
+}
+
+.backgroundContainerTS {
+  background: url('https://d24fkeqntp1r7r.cloudfront.net/wp-content/uploads/2018/01/10203211/truth-newspaper-news-printed-text-wallpaper.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+
+
+
+/* Tiny reset thingy */
+body,html{margin:0;padding:0;}
+
+.wrapper {
+  /* The height needs to be set to a fixed value for the effect to work.
+   * 100vh is the full height of the viewport. */
+  height: 118vh;
+  /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+  /* overflow-x: hidden; */
+  /* Enable scrolling on the page. */
+  /* overflow-y: auto; */
+  /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+  perspective: 2px;
+}
+
+.section {
+  /* Needed for children to be absolutely positioned relative to the parent. */
+  position: relative;
+  /* The height of the container. Must be set, but it doesn't really matter what the value is. */
+  /* height: 100vh; */
+  
+  /* For text formatting. */
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  color: teal;
+  text-shadow: 0 0 1px #000;
+}
+
+.parallax::after {
+  /* Display and position the pseudo-element */
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  
+  /* Move the pseudo-element back away from the camera,
+   * then scale it back up to fill the viewport.
+   * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+  transform: translateZ(-1px) scale(1.5);
+  /* Force the background image to fill the whole element. */
+  background-size: 100%;
+  /* Keep the image from overlapping sibling elements. */ 
+  z-index: -1;
+}
+
+/* The styling for the static div. */
+.bg2 {
+      background: #EFEBEA;
+      text-align: center;
+}
+
+.static {
+  background-image: url('https://cdn.i-scmp.com/sites/default/files/styles/og_image_scmp_analysis/public/d8/images/methode/2019/04/20/5e8159e0-62b6-11e9-b745-17e2afcf325c_image_hires_040324.jpg?itok=2G3rZOsp');
+  height: 35vh;
+  width: 400px;
+  margin-top: 26px;
+  margin-bottom: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+

@@ -1,35 +1,69 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
+        <script src="bootstrap/js/jquery-3.4.1.slim.min.js"></script>
+        <!--script src="bootstrap/js/bootstrap.bundle.js"></script>
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>-->
+        <script src="bootstrap3/js/bootstrap.min.js"></script>
+        <link href="bootstrap3/css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://cdnjs.cloudflare.com ">
         <link rel="stylesheet" href="style.css">
         <script src="truestory.app.js"></script>
         <script src="dareangel.dashboard.js"></script>
         <script src="start.js"></script>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!--link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"-->
+
     </head>
     <body>
-        <div id="controlPanelTrueStory">
-            <label class="switchTrueStory">
-                <input id = "checkboxTrueStory" type="checkbox" checked>
-                <span class="sliderTrueStory roundTrueStory"></span>
-            </label>
-        </div>
-        <div class="logo_true_story">
-            <img src = "./logo-horizontal.png">
-        </div>
-        <h1>It's a true story</h1>
-        <h1>"Tell me, tell me, tell me the story! Pleaaaase"</h1>
-        <h1>Sure, but beware 'coz it's a biased story</h1>
+        
 
-        <div id = "imagesCollection" class=".col-sm-4">
+
+
+    <main class="wrapper">
+        <section class="section parallax bg1">
+            <div>
+                <div class="headerContainerTS">
+                    <div class="backgroundContainerTS">
+                    </div>
+                    <div class="logo_true_story">
+                        <img src = "./logo-horizontal.png">
+                    </div>
+                    <div id="controlPanelTrueStory">
+
+                        <label class="switchTrueStory">
+                            <input id = "checkboxTrueStory" type="checkbox" checked>
+                            <span class="sliderTrueStory roundTrueStory"></span>
+                        </label>
+
+                        <ul class="nav navbar-nav menu_nav">
+                            <li class="nav-item active tealTS"><a class="nav-link tealTS" href="index.html">Home</a></li> 
+                            <li class="nav-item tealTS"><a class="nav-link tealTS" href="category.html">Category</a></li>
+                            <li class="nav-item tealTS"><a class="nav-link tealTS" href="archive.html">Archive</a></li>
+                            <li class="nav-item tealTS"><a class="nav-link tealTS" href="elements.html">Elements</a></li>
+                            <li class="nav-item tealTS"><a class="nav-link tealTS" href="contact.html">Contact</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right ml-auto">
+                            <li class="nav-item"><a href="#" class="search"><i class="lnr lnr-magnifier"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section static">
+            
+        </section>
+        <section class="section parallax bg2">
+            <h7>&nbsp;&nbsp;&nbsp;&nbsp;Average out the bias, seek the truth </h7><br></br>
+            <h7>&nbsp;&nbsp;&nbsp;&nbsp;We feel compelled to avoid the bias and seek idealistic objective news, even though we all know this is rare nowadays. 
+                But what if these conflicting passions bring stories to life? Or represent the foundation for investigative journalism and 
+                the first step to right a wrong? </h7><br></br>
+
+            <h7>&nbsp;&nbsp;&nbsp;&nbsp;We believe that being open-minded is the key. If you are genuinely willing to be informed, don't miss our browser extension.</h7>
+        </section>
+        <div id = "imagesCollection">
             
         </div>
-        <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
-        <script src="bootstrap/js/jquery-3.4.1.slim.min.js"></script>
-        <script src="bootstrap/js/bootstrap.bundle.js"></script>
-        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="bootstrap/js/bootstrap.bundle.js.map"></script>
-        <script src="bootstrap/js/bootstrap.bundle.min.js.map"></script>
+    </main>
     </body>
 </html>
