@@ -1,0 +1,44 @@
+  {
+    "manifest_version": 2,
+    
+    "name": "True Story Extensions",
+    "description" : "Bias recognition injected in the heart of your browser",
+    "version": "1.0",
+    "author": "@TrueStory inc.",
+
+    "browser_action": {
+        "default_title": "True Story Extensions",
+        "default_popup": "hello.html",
+        "default_icon": "logo-square.png"
+    },
+    "web_accessible_resources": [
+      "logo-square.png", 
+      "logo-horizontal.png", 
+      "https://use.fontawesome.com/releases/v5.8.1/css/all.css\" integrity=\"sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf",
+      "style.css",
+      "fontawesome/css/all.min.css",
+      "fontawesome/*",
+      "bootstrap/*"
+    ],
+    "commands": {
+      "_execute_browser_action": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+F",
+          "mac": "MacCtrl+Shift+F"
+        },
+        "description": "Opens hello.html"
+      }
+    },
+    "content_scripts": [{
+        "css": [ "style.css", "fontawesome/css/all.min.css"],
+        "matches": ["<all_urls>"],
+        "js": ["truestory.app.js"],
+        "run_at": "document_start"
+    }],
+    "permissions": [
+        "activeTab",
+        "cookies",
+        "http://127.0.0.1:8000/"
+    ]
+  
+  }
