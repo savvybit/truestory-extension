@@ -182,7 +182,7 @@ input:checked + .sliderTrueStory:before {
 
 
 /* Tiny reset thingy */
-body,html{margin:0;padding:0;}
+body,html{margin:0;padding:4px;}
 
 .wrapper {
   /* The height needs to be set to a fixed value for the effect to work.
@@ -243,5 +243,9 @@ body,html{margin:0;padding:0;}
   margin-bottom: 20px;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+#motoTS {
+  font-size: 24px;
 }
 
