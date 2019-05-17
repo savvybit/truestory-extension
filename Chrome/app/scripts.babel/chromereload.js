@@ -32,4 +32,3 @@ connection.onmessage = e => {
     }
   }
 };
-

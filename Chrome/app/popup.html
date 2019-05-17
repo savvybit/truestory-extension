@@ -3,17 +3,47 @@
   <head>
     <meta charset="utf-8">
     <!-- build:css styles/popup-vendor.css -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Patua+One|Noto+Sans" />
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/fontawesome/css/all.css" />
     <!-- endbower -->
     <!-- endbuild -->
+
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css" />
     <!-- endbuild -->
   </head>
   <body>
-    <h1>Hello world!</h1>
+    <div class="container-fluid my-3">
+      <div id="articleList"">
+        <div class="row">
+          <div class="col-12">
+            <div class="card shadow">
+              <a href="https://nypost.com/2019/05/04/trump-boasts-very-good-call-with-putin-slams-new-media/" class="card-link text-dark">
+                <div class="row no-gutters">
+                  <div class="col-4">
+                    <img src="https://thenypost.files.wordpress.com/2019/05/190504-donald-trump.jpg?quality=90&strip=all&w=1286" class="card-img" alt="Article picture">
+                  </div>
+
+                  <div class="col-8">
+                    <div class="card-body">
+                      <p class="card-title font-article-title">Trump boasts about ‘very good call’ with Putin, slams news media</p>
+                      <p class="card-text">
+                        <small class="text-muted">
+                          New York Post
+                        </small>
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- build:js scripts/popup-vendor.js -->
     <!-- bower:js -->
