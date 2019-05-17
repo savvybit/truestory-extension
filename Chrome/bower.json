@@ -7,5 +7,18 @@
     "bootstrap": "^4.3.1",
     "fontawesome": "^5.8.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "overrides": {
+    "bootstrap":{
+      "main":[
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.bundle.js"
+      ]
+    },
+    "fontawesome":{
+      "main":[
+        "css/all.css"
+      ]
+    }
+  }
 }
