@@ -2,6 +2,10 @@
   "name": "truestory",
   "private": true,
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "bootstrap": "^4.3.1",
+    "fontawesome": "^5.8.2"
+  },
   "devDependencies": {}
 }
