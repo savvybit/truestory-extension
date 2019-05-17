@@ -1,3 +1,3 @@
 # truestory-extension
 
-Display opposed news through a Chrome extension.
+Display related opposed news through a browser extension.
