@@ -35,14 +35,14 @@ function displayArticle(internalUrl) {
   $.getJSON({
     url: internalUrl
   }).done(function(data) {
-    var articleTemplate = $('div#templates').find(
-      'div.article-template').parent().html();
-    var articleHtml = $(Mustache.render(articleTemplate, data.article));
-    articleHtml.click(function() {
-      var link = $(this).find('a.card-link').attr('href');
-      openUrl(link);
+    $.get('templates/article.html', function(template) {
+      var articleHtml = $(Mustache.render(template, data.article));
+      articleHtml.click(function() {
+        var link = $(this).find('a.card-link').attr('href');
+        openUrl(link);
+      });
+      $('div#articleList').append(articleHtml);
     });
-    $('div#articleList').append(articleHtml);
   }).fail(logApiFailure);
 }
 
