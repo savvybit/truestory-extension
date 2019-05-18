@@ -30,7 +30,10 @@ function displayArticle(internalUrl) {
   $.getJSON({
     url: internalUrl
   }).done(function(data) {
-    log(data.article);
+    var articleTemplate = $('div#templates').find(
+      'div.article-template').parent().html();
+    var articleHtml = Mustache.render(articleTemplate, data.article);
+    $('div#articleList').append(articleHtml);
   }).fail(logApiFailure);
 }
 

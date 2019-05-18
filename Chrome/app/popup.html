@@ -13,35 +13,40 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css" />
     <!-- endbuild -->
-  </head>
-  <body>
-    <div class="container-fluid my-3">
-      <div id="articleList"">
-        <div class="row">
-          <div class="col-12">
-            <div class="card shadow">
-              <a href="https://nypost.com/2019/05/04/trump-boasts-very-good-call-with-putin-slams-new-media/" class="card-link text-dark">
-                <div class="row no-gutters">
-                  <div class="col-4">
-                    <img src="https://thenypost.files.wordpress.com/2019/05/190504-donald-trump.jpg?quality=90&strip=all&w=1286" class="card-img" alt="Article picture">
-                  </div>
 
-                  <div class="col-8">
-                    <div class="card-body">
-                      <p class="card-title font-article-title">Trump boasts about ‘very good call’ with Putin, slams news media</p>
-                      <p class="card-text">
-                        <small class="text-muted">
-                          New York Post
-                        </small>
-                      </p>
-                    </div>
-                  </div>
+    <div id="templates" class="d-none">
+      <div class="row article-template py-2">
+        <div class="col-12">
+          <div class="card shadow">
+            <a href="{{link}}" class="card-link text-dark">
+              <div class="row no-gutters">
 
+                <div class="col-4">
+                  <img src="{{image}}" class="card-img" alt="Article picture">
                 </div>
-              </a>
-            </div>
+
+                <div class="col-8">
+                  <div class="card-body">
+                    <h6 class="card-title font-article-title">{{title}}</h6>
+                    <p class="card-text">
+                      <small class="text-muted">{{source_name}}</small>
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </a>
           </div>
         </div>
+      </div>
+    </div>
+  </head>
+  <body>
+    <div class="container-fluid py-2">
+      <div id="logo">
+      </div>
+
+      <div id="articleList"">
       </div>
     </div>
 
@@ -49,6 +54,7 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="bower_components/mustache.js/mustache.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

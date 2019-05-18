@@ -5,18 +5,19 @@
   "dependencies": {
     "jquery": "^3.4.1",
     "bootstrap": "^4.3.1",
-    "fontawesome": "^5.8.2"
+    "fontawesome": "^5.8.2",
+    "mustache.js": "mustache#^3.0.1"
   },
   "devDependencies": {},
   "overrides": {
-    "bootstrap":{
-      "main":[
+    "bootstrap": {
+      "main": [
         "dist/css/bootstrap.css",
         "dist/js/bootstrap.bundle.js"
       ]
     },
-    "fontawesome":{
-      "main":[
+    "fontawesome": {
+      "main": [
         "css/all.css"
       ]
     }
