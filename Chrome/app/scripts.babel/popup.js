@@ -15,14 +15,19 @@ function log(msg) {
 }
 
 
+function logApiFailure(xhr) {
+  var msg = xhr.responseJSON.message;
+  bgPage.console.error('Error ' + xhr.status + ': ' + msg);
+}
+
+
 function apiUrl(name) {
   return BASE_URL + '/api' + API_URLS[name];
 }
 
 
-function logApiFailure(xhr) {
-  var msg = xhr.responseJSON.message;
-  bgPage.console.error('Error ' + xhr.status + ': ' + msg);
+function openUrl(url) {
+  chrome.tabs.create({url: url, active: false});
 }
 
 
@@ -32,7 +37,11 @@ function displayArticle(internalUrl) {
   }).done(function(data) {
     var articleTemplate = $('div#templates').find(
       'div.article-template').parent().html();
-    var articleHtml = Mustache.render(articleTemplate, data.article);
+    var articleHtml = $(Mustache.render(articleTemplate, data.article));
+    articleHtml.click(function() {
+      var link = $(this).find('a.card-link').attr('href');
+      openUrl(link);
+    });
     $('div#articleList').append(articleHtml);
   }).fail(logApiFailure);
 }
