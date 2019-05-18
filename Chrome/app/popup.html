@@ -42,13 +42,23 @@
     </div>
   </head>
   <body>
-    <div class="container-fluid py-2">
-      <div class="text-center pb-4">
+    <div class="container-fluid text-center py-2">
+      <div class="pb-4">
         <a href="https://truestory.one" target="_blank">
           <img src="images/logo.png" alt="Logo" class="logo-img">
         </a>
       </div>
-      <div id="articleList"">
+
+      <div id="articleList" class="text-left">
+      </div>
+
+      <div id="loadingStatus">
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...
+      </div>
+      <div id="noResults" class="text-muted py-4 d-none">
+        <i class="far fa-newspaper fa-3x"></i>
+        <p><strong>Interesting!</strong></p>
+        <p><small>You came across a not so popular subject.</small></p>
       </div>
     </div>
 

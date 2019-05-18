@@ -65,8 +65,13 @@ function getArticles() {
       }).done(function(data) {
         $.each(data.articles, function(idx, article) {
           displayArticle(article.url);
-        });
-      }).fail(logApiFailure);
+        })
+      }).fail(function(xhr) {
+        logApiFailure(xhr);
+        $('div#noResults').removeClass('d-none');
+      }).always(function() {
+        $('div#loadingStatus').addClass('d-none');
+      });
     }
   );
 }
