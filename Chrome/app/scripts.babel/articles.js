@@ -56,6 +56,13 @@ function getArticles() {
 }
 
 
+function linkSettings() {
+  $('#badToken').find('a').click(function () {
+    $('nav').find('a#nav-settings-tab').click();
+  });
+}
+
+
 function articlesTab() {
   if (!$('div#articleList').find('div').length) {
     getArticles();
@@ -63,4 +70,4 @@ function articlesTab() {
 }
 
 
-toLoad.push(articlesTab);
+toLoad.push(linkSettings, articlesTab);

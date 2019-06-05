@@ -29,15 +29,6 @@ function logApiFailure(xhr) {
 }
 
 
-function setToken(token) {
-  $.ajaxSetup({
-    headers: {
-      'Authorization': 'Bearer ' + token
-    }
-  });
-}
-
-
 function apiUrl(name) {
   return BASE_URL + '/api' + API_URLS[name];
 }

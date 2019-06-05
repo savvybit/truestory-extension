@@ -12,6 +12,15 @@ var delay = (function () {
 })();
 
 
+function setToken(token) {
+  $.ajaxSetup({
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  });
+}
+
+
 function saveToken() {
   if (!inputToken.val()) {
     inputToken.val(API_TOKEN);
