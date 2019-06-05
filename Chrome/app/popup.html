@@ -10,28 +10,66 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css" />
+    <!-- build:css styles/popup.css -->
+    <link rel="stylesheet" href="styles/popup.css" />
+    <link rel="stylesheet" href="styles/articles.css" />
     <!-- endbuild -->
   </head>
   <body>
     <div class="container-fluid text-center py-2">
+      <!-- Logo to web platform. -->
       <div class="pb-4">
         <a href="https://truestory.one" target="_blank">
           <img src="images/logo.png" alt="Logo" class="logo-img">
         </a>
       </div>
 
-      <div id="articleList" class="text-left">
-      </div>
+      <!-- Tabs with content. -->
+      <nav>
+        <div class="nav nav-tabs justify-content-center" role="tablist">
+          <a class="nav-item nav-link active" id="nav-articles-tab" data-toggle="tab" href="#nav-articles"
+           role="tab" aria-controls="nav-articles" aria-selected="true">Articles</a>
+          <a class="nav-item nav-link" id="nav-settings-tab" data-toggle="tab" href="#nav-settings"
+           role="tab" aria-controls="nav-settings" aria-selected="false">Settings</a>
+          <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about"
+           role="tab" aria-controls="nav-about" aria-selected="false">About</a>
+        </div>
+      </nav>
 
-      <div id="loadingStatus">
-        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...
-      </div>
-      <div id="noResults" class="text-muted py-4 d-none">
-        <i class="far fa-newspaper fa-3x"></i>
-        <p><strong>Interesting!</strong></p>
-        <p><small>You came across a not so popular subject.</small></p>
+      <div class="tab-content py-4">
+        <!-- Articles content. -->
+        <div class="tab-pane fade show active" id="nav-articles" role="tabpanel" aria-labelledby="nav-articles-tab">
+            <div id="articleList" class="text-left"></div>
+            <div id="loadingStatus">
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </div>
+            <div id="noResults" class="text-muted d-none">
+              <i class="far fa-newspaper fa-3x"></i>
+              <p><strong>Interesting!</strong></p>
+              <p><small>You came across a not so popular subject.</small></p>
+            </div>
+        </div>
+
+        <!-- Settings content. -->
+        <div class="tab-pane fade" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab">
+          <div class="row">
+            <label class="col-3 text-left" for="token">Token</label>
+            <div class="col-3 text-right ml-auto">
+              <small id="savedText" class="text-success d-none">
+                <i class="fas fa-check"></i> Saved
+              </small>
+            </div>
+          </div>
+          <input type="text" class="form-control" id="token" placeholder="Leave blank for default">
+        </div>
+
+        <!-- About content. -->
+        <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+          <em>Whitelist</em>
+          <div class="fixed-scroll" id="sourceList"></div>
+          <small class="text-muted"><em>truestory.one</em></small>
+        </div>
       </div>
     </div>
 
@@ -45,6 +83,9 @@
 
     <!-- build:js scripts/popup.js -->
     <script src="scripts/popup.js"></script>
+    <script src="scripts/articles.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/about.js"></script>
     <!-- endbuild -->
   </body>
 </html>
