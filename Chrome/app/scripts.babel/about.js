@@ -1,10 +1,7 @@
 'use strict';
 
 
-function aboutTab() {
-  // Header.
-
-  // Add sources list.
+function displaySources() {
   $.getJSON({
     url: apiUrl('sites_info')
   }).done(function (data) {
@@ -24,6 +21,11 @@ function aboutTab() {
   }).fail(function (xhr) {
     logApiFailure(xhr);
   });
+}
 
-  // Footer.
+
+function aboutTab() {
+  if (!$('#sourceList').find('div').length) {
+    displaySources();
+  }
 }

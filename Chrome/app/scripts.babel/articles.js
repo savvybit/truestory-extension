@@ -18,6 +18,7 @@ function displayArticle(internalUrl) {
 
 
 function getArticles() {
+  $('div#loadingStatus').removeClass('d-none');
   chrome.tabs.query(
     {
       active: true,
@@ -31,6 +32,14 @@ function getArticles() {
         url: apiUrl('counter_article'),
         data: {
           link: tabUrl
+        },
+        statusCode: {
+          401: function () {
+            $('div#badToken').removeClass('d-none');
+          },
+          404: function () {
+            $('div#noResults').removeClass('d-none');
+          }
         }
       }).done(function (data) {
         $.each(data.articles, function (_idx, article) {
@@ -38,13 +47,20 @@ function getArticles() {
         });
       }).fail(function (xhr) {
         logApiFailure(xhr);
-        $('div#noResults').removeClass('d-none');
       }).always(function () {
         $('div#loadingStatus').addClass('d-none');
+        $('div.article-error').addClass('d-none');
       });
     }
   );
 }
 
 
-toLoad.push(getArticles);
+function articlesTab() {
+  if (!$('div#articleList').find('div').length) {
+    getArticles();
+  }
+}
+
+
+toLoad.push(articlesTab);

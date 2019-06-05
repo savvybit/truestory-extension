@@ -16,7 +16,11 @@ function saveToken() {
   if (!inputToken.val()) {
     inputToken.val(API_TOKEN);
   }
-  setToken(inputToken.val());
+  var value = inputToken.val();
+  chrome.storage.sync.set({'token': value}, function () {
+    log('Set new token as: ' + value);
+  });
+  setToken(value);
   $('#savedText').removeClass('d-none').fadeOut({
     complete: function () {
       $(this).addClass('d-none').fadeIn();
@@ -25,7 +29,29 @@ function saveToken() {
 }
 
 
+function waitValue(selector, func) {
+  if (!selector.val()) {
+    return setTimeout(waitValue, 100, selector, func);
+  }
+  func();
+}
+
+
+function loadToken() {
+  chrome.storage.sync.get('token', function (items) {
+    var value = items.token;
+    if (value) {
+      log('Loaded saved token: ' + value);
+      inputToken.val(value);
+      waitValue(inputToken, saveToken);
+    } else {
+      saveToken();
+    }
+  });
+}
+
+
 inputToken.keyup(function () {
   delay(saveToken, 500);
 });
-saveToken();
+loadToken();

@@ -50,7 +50,7 @@ function openUrl(url) {
 
 function setUpTabs() {
   var tabs = {
-    articles: null,
+    articles: articlesTab,
     settings: null,
     about: aboutTab,
   };

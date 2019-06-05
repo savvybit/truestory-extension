@@ -7,6 +7,6 @@ body {
 }
 
 .fixed-scroll {
-  height: 20rem;
+  height: 15rem;
   overflow-y: scroll;
 }

@@ -17,7 +17,8 @@
   "permissions": [
     "tabs",
     "webRequest",
-    "*://*/*"
+    "*://*/*",
+    "storage"
   ],
   "browser_action": {
     "default_icon": {
