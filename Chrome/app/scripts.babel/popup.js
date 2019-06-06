@@ -9,6 +9,9 @@ const API_URLS = {
 
 var bgPage = chrome.extension.getBackgroundPage();
 var toLoad = [];
+var headers = {
+  'Content-Type': 'application/json'
+}
 
 
 function loadAll() {
@@ -56,5 +59,29 @@ function setUpTabs() {
 }
 
 
-toLoad.push(setUpTabs);
+function tieTabLinks() {
+  $('a.tab-link').click(function () {
+    var tabAddress = $(this).attr('href');
+    var tab = $('nav').find('a' + tabAddress + '-tab');
+    if (tab.hasClass('active')) {
+      tab.trigger('shown.bs.tab');
+    } else {
+      tab.click();
+    }
+  });
+}
+
+
+function addHeaders(xhr) {
+  for (name in headers) {
+    xhr.setRequestHeader(name, headers[name]);
+  }
+}
+
+
+$.ajaxSetup({
+  beforeSend: addHeaders
+});
+
+toLoad.push(setUpTabs, tieTabLinks);
 $(loadAll);

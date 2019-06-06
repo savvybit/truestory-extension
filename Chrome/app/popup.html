@@ -51,13 +51,22 @@
               <p><strong>Attention!</strong></p>
               <small>
                 Wrong token, <strong>delete</strong> it from
-                <a href="#nav-settings" class="card-link"><em>Settings</em></a> for getting the default one.
+                <a href="#nav-settings" class="card-link tab-link"><em>Settings</em></a> for getting the default one.
               </small>
             </div>
             <div id="noResults" class="text-muted d-none article-error">
               <i class="far fa-newspaper fa-3x"></i>
               <p><strong>Interesting...</strong></p>
-              <small>You came across a not so popular subject.</small>
+              <small>
+                You came across a not so popular subject.
+                <br>
+                <div id="tryAgain" class="d-none">
+                  <em>
+                    Still, <a href="#nav-articles" class="tab-link">try again</a> in a few seconds,
+                    you may be luckier then.
+                  </em>
+                </div>
+              </small>
             </div>
         </div>
 

@@ -13,11 +13,7 @@ var delay = (function () {
 
 
 function setToken(token) {
-  $.ajaxSetup({
-    headers: {
-      'Authorization': 'Bearer ' + token
-    }
-  });
+  headers['Authorization'] = 'Bearer ' + token;
 }
 
 

@@ -17,8 +17,29 @@ function displayArticle(internalUrl) {
 }
 
 
+function submitArticle(link) {
+  $('div#loadingStatus').removeClass('d-none');
+  $('#tryAgain').addClass('d-none');
+
+  var data = JSON.stringify({'link': link});
+  $.post({
+    url: apiUrl('counter_article'),
+    data: data,
+    dataType: 'json'
+  }).done(function () {
+    $('#tryAgain').removeClass('d-none');
+  }).fail(function (xhr) {
+    logApiFailure(xhr);
+  }).always(function () {
+    $('div#loadingStatus').addClass('d-none');
+  });
+}
+
+
 function getArticles() {
   $('div#loadingStatus').removeClass('d-none');
+  $('div.article-error').addClass('d-none');
+
   chrome.tabs.query(
     {
       active: true,
@@ -39,6 +60,7 @@ function getArticles() {
           },
           404: function () {
             $('div#noResults').removeClass('d-none');
+            submitArticle(tabUrl);
           }
         }
       }).done(function (data) {
@@ -56,13 +78,6 @@ function getArticles() {
 }
 
 
-function linkSettings() {
-  $('#badToken').find('a').click(function () {
-    $('nav').find('a#nav-settings-tab').click();
-  });
-}
-
-
 function articlesTab() {
   if (!$('div#articleList').find('div').length) {
     getArticles();
@@ -70,4 +85,4 @@ function articlesTab() {
 }
 
 
-toLoad.push(linkSettings, articlesTab);
+toLoad.push(articlesTab);
