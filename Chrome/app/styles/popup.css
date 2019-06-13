@@ -6,7 +6,15 @@ body {
   height: 3rem;
 }
 
-.fixed-scroll {
-  height: 15rem;
+.vscroll-md, .vscroll-lg {
+  overflow-x: hidden;
   overflow-y: scroll;
+}
+
+.vscroll-md {
+  max-height: 15rem;
+}
+
+.vscroll-lg {
+  max-height: 20rem;
 }
