@@ -1,0 +1,12 @@
+body {
+  min-width: 400px;
+}
+
+.logo-img {
+  height: 3rem;
+}
+
+.fixed-scroll {
+  height: 15rem;
+  overflow-y: scroll;
+}

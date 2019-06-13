@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-12 text-center">
+      <a href="{{ publisher }}">
+        {{ #crawled }}
+          <strong>{{ source }}</strong>
+        {{ /crawled }}
+        {{ ^crawled }}
+          {{ source }}
+        {{ /crawled }}
+      </a>
+  </div>
+</div>
