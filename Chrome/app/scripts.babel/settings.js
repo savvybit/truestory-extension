@@ -18,14 +18,17 @@ function setToken(token) {
 
 
 function saveToken() {
-  if (!inputToken.val()) {
-    inputToken.val(API_TOKEN);
-  }
   var value = inputToken.val();
+  if (!value) {
+    value = API_TOKEN;
+    inputToken.val(value);
+  }
+
   chrome.storage.sync.set({'token': value}, function () {
     log('Set new token as: ' + value);
   });
   setToken(value);
+
   $('#savedText').removeClass('d-none').fadeOut({
     complete: function () {
       $(this).addClass('d-none').fadeIn();
