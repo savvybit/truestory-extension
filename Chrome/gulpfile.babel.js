@@ -100,6 +100,7 @@ gulp.task('watch', ['lint', 'babel'], () => {
 
   gulp.watch([
     'app/*.html',
+    'app/templates/**/*.html',
     'app/scripts/**/*.js',
     'app/images/**/*',
     'app/styles/**/*',
