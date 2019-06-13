@@ -14,6 +14,7 @@ Then clone and install locally all the requirements:
 $ git clone https://github.com/savvybit/truestory-extension.git
 $ cd truestory-extension/Chrome
 $ npm install
+$ bower install
 ```
 
 Now build the extension distributable and import it in the browser.
