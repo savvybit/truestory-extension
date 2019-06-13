@@ -18,7 +18,8 @@
     },
     "fontawesome": {
       "main": [
-        "css/all.css"
+        "css/all.css",
+        "js/all.js"
       ]
     }
   }
