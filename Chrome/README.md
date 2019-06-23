@@ -11,7 +11,7 @@ version 4 of Gulp).
 Then clone and install locally all the requirements:
 
 ```bash
-$ git clone https://github.com/savvybit/truestory-extension.git
+$ git clone https://gitlab.com/truestory-one/truestory-extension.git
 $ cd truestory-extension/Chrome
 $ npm install
 $ bower install
