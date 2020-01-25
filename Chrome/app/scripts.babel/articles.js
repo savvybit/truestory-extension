@@ -1,7 +1,7 @@
 'use strict';
 
 
-function clickArticle() {
+function articleClick() {
   var link = $(this).find('a.card-link').attr('href');
   openUrl(link);
 }
@@ -15,7 +15,7 @@ function displayArticle(idx, internalUrl) {
   }).done(function (data) {
     $.get('templates/article.html', function (template) {
       var articleHtml = $(Mustache.render(template, data.article));
-      articleHtml.click(clickArticle);
+      articleHtml.click(articleClick);
       articleHtml.prop('id', idx);
       $('div#articleList').append(articleHtml);
       def.resolve();
@@ -107,7 +107,7 @@ function sortArticles() {
     article.remove();
     // NOTE(cmiN): Clicking ability is lost when removing and re-appending the article
     //  whilst being sorted.
-    article.click(clickArticle);
+    article.click(articleClick);
     article.appendTo(articleList);
   });
 }
