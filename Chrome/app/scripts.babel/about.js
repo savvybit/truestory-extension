@@ -18,9 +18,7 @@ function displaySources() {
         $('#sourceList').append(sourceHtml);
       });
     });
-  }).fail(function (xhr) {
-    logApiFailure(xhr);
-  });
+  }).fail(logApiFailure);
 }
 
 

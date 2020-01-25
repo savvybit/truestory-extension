@@ -17,7 +17,10 @@ function displayArticle(idx, internalUrl) {
       $('div#articleList').append(articleHtml);
       def.resolve();
     });
-  }).fail(logApiFailure);
+  }).fail(function (xhr) {
+    logApiFailure(xhr);
+    def.resolve();
+  });
 
   return def.promise();
 }
@@ -34,9 +37,7 @@ function submitArticle(link) {
     dataType: 'json'
   }).done(function () {
     $('#tryAgain').removeClass('d-none');
-  }).fail(function (xhr) {
-    logApiFailure(xhr);
-  }).always(function () {
+  }).fail(logApiFailure).always(function () {
     $('div#loadingStatus').addClass('d-none');
   });
 }
@@ -82,6 +83,7 @@ function getArticles() {
         });
       }).fail(function (xhr) {
         logApiFailure(xhr);
+        def.resolve();
       }).always(function () {
         $('div#loadingStatus').addClass('d-none');
         $('div.article-error').addClass('d-none');
