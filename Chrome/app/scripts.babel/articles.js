@@ -30,8 +30,8 @@ function displayArticle(idx, internalUrl) {
 
 
 function submitArticle(link) {
-  $('div#loadingStatus').removeClass('d-none');
-  $('#tryAgain').addClass('d-none');
+  showElem('div#loadingStatus');
+  hideElem('#tryAgain');
 
   var data = JSON.stringify({'link': link});
   $.post({
@@ -39,17 +39,17 @@ function submitArticle(link) {
     data: data,
     dataType: 'json'
   }).done(function () {
-    $('#tryAgain').removeClass('d-none');
+    showElem('#tryAgain');
   }).fail(logApiFailure).always(function () {
-    $('div#loadingStatus').addClass('d-none');
+    hideElem('div#loadingStatus');
   });
 }
 
 
 function getArticles() {
   var def = $.Deferred();
-  $('div#loadingStatus').removeClass('d-none');
-  $('div.article-error').addClass('d-none');
+  showElem('div#loadingStatus');
+  hideElem('div.article-error');
 
   chrome.tabs.query(
     {
@@ -67,11 +67,14 @@ function getArticles() {
         },
         statusCode: {
           401: function () {
-            $('div#badToken').removeClass('d-none');
+            showElem('div#badToken');
           },
           404: function () {
-            $('div#noResults').removeClass('d-none');
+            showElem('div#noResults');
             submitArticle(tabUrl);
+          },
+          429: function () {
+            showElem('div#limitReached');
           }
         }
       }).done(function (data) {
@@ -88,8 +91,8 @@ function getArticles() {
         logApiFailure(xhr);
         def.resolve();
       }).always(function () {
-        $('div#loadingStatus').addClass('d-none');
-        $('div.article-error').addClass('d-none');
+        hideElem('div#loadingStatus');
+        hideElem('div.article-error');
       });
     }
   );

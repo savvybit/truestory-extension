@@ -1,7 +1,5 @@
 'use strict';
 
-const API_TOKEN = 'd897703467a4fe7b958b68426f1721dd';
-
 var inputToken = $('input#token');
 var delay = (function () {
   var timer = 0;
@@ -13,27 +11,30 @@ var delay = (function () {
 
 
 function setToken(token) {
+  chrome.storage.sync.set({'token': token}, function () {
+    log('Set new token as: ' + token);
+  });
+
+  showElem('#savedText').fadeOut({
+    complete: function () {
+      hideElem(this).fadeIn();
+    }
+  });
   headers['Authorization'] = 'Bearer ' + token;
 }
 
 
 function saveToken() {
-  var value = inputToken.val();
-  if (!value) {
-    value = API_TOKEN;
-    inputToken.val(value);
+  var token = inputToken.val();
+  if (!token) {
+    $.get(appUrl('token')).done(function (data) {
+      token = data.trim();
+      inputToken.val(token);
+      setToken(token);
+    }).fail(logApiFailure);
+  } else {
+    setToken(token);
   }
-
-  chrome.storage.sync.set({'token': value}, function () {
-    log('Set new token as: ' + value);
-  });
-  setToken(value);
-
-  $('#savedText').removeClass('d-none').fadeOut({
-    complete: function () {
-      $(this).addClass('d-none').fadeIn();
-    }
-  });
 }
 
 
@@ -47,10 +48,10 @@ function waitValue(selector, func) {
 
 function loadToken() {
   chrome.storage.sync.get('token', function (items) {
-    var value = items.token;
-    if (value) {
-      log('Loaded saved token: ' + value);
-      inputToken.val(value);
+    var token = items.token;
+    if (token) {
+      log('Loaded saved token: ' + token);
+      inputToken.val(token);
       waitValue(inputToken, saveToken);
     } else {
       saveToken();

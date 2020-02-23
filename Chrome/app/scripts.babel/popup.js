@@ -1,11 +1,15 @@
 'use strict';
 
 const BASE_URL = 'https://truestory.one';
+const API_PREFIX = '/api';
 const API_URLS = {
   'counter_article': '/article/counter',
   'article_data': '/article/data',
   'sites_info': '/info/sites',
 };
+const APP_URLS = {
+  'token': '/token'
+}
 
 var bgPage = chrome.extension.getBackgroundPage();
 var toLoad = [];
@@ -21,6 +25,16 @@ function loadAll() {
 }
 
 
+function showElem(selector) {
+  return $(selector).removeClass('d-none');
+}
+
+
+function hideElem(selector) {
+  return $(selector).addClass('d-none');
+}
+
+
 function log(msg) {
   bgPage.console.log(msg);
 }
@@ -33,7 +47,12 @@ function logApiFailure(xhr) {
 
 
 function apiUrl(name) {
-  return BASE_URL + '/api' + API_URLS[name];
+  return BASE_URL + API_PREFIX + API_URLS[name];
+}
+
+
+function appUrl(name) {
+  return BASE_URL + APP_URLS[name];
 }
 
 
