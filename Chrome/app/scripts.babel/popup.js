@@ -8,7 +8,9 @@ const API_URLS = {
   'sites_info': '/info/sites',
 };
 const APP_URLS = {
-  'token': '/token'
+  'token': '/token',
+  'home': '/home',
+  'premium': '/premium'
 }
 
 var bgPage = chrome.extension.getBackgroundPage();
@@ -91,6 +93,14 @@ function tieTabLinks() {
 }
 
 
+function miscSetup() {
+  // Going to Home when clicking the logo.
+  $('a#homeLink').attr('href', appUrl('home'));
+  // Set-up the premium URL for getting pro when reaching the request limit.
+  $('a#premiumLink').attr('href', appUrl('premium'));
+}
+
+
 function addHeaders(xhr) {
   for (name in headers) {
     xhr.setRequestHeader(name, headers[name]);
@@ -102,5 +112,5 @@ $.ajaxSetup({
   beforeSend: addHeaders
 });
 
-toLoad.push(setUpTabs, tieTabLinks);
+toLoad.push(setUpTabs, tieTabLinks, miscSetup);
 $(loadAll);
