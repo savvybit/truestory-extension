@@ -1,11 +1,17 @@
 'use strict';
 
 const BASE_URL = 'https://truestory.one';
+const API_PREFIX = '/api';
 const API_URLS = {
   'counter_article': '/article/counter',
   'article_data': '/article/data',
   'sites_info': '/info/sites',
 };
+const APP_URLS = {
+  'token': '/token',
+  'home': '/home',
+  'premium': '/premium'
+}
 
 var bgPage = chrome.extension.getBackgroundPage();
 var toLoad = [];
@@ -21,6 +27,16 @@ function loadAll() {
 }
 
 
+function showElem(selector) {
+  return $(selector).removeClass('d-none');
+}
+
+
+function hideElem(selector) {
+  return $(selector).addClass('d-none');
+}
+
+
 function log(msg) {
   bgPage.console.log(msg);
 }
@@ -33,7 +49,12 @@ function logApiFailure(xhr) {
 
 
 function apiUrl(name) {
-  return BASE_URL + '/api' + API_URLS[name];
+  return BASE_URL + API_PREFIX + API_URLS[name];
+}
+
+
+function appUrl(name) {
+  return BASE_URL + APP_URLS[name];
 }
 
 
@@ -72,6 +93,14 @@ function tieTabLinks() {
 }
 
 
+function miscSetup() {
+  // Going to Home when clicking the logo.
+  $('a#homeLink').attr('href', appUrl('home'));
+  // Set-up the premium URL for getting pro when reaching the request limit.
+  $('a#premiumLink').attr('href', appUrl('premium'));
+}
+
+
 function addHeaders(xhr) {
   for (name in headers) {
     xhr.setRequestHeader(name, headers[name]);
@@ -83,5 +112,5 @@ $.ajaxSetup({
   beforeSend: addHeaders
 });
 
-toLoad.push(setUpTabs, tieTabLinks);
+toLoad.push(setUpTabs, tieTabLinks, miscSetup);
 $(loadAll);
