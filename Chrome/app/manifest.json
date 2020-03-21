@@ -1,6 +1,6 @@
 {
   "name": "__MSG_appName__",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "manifest_version": 2,
   "description": "__MSG_appDescription__",
   "icons": {
@@ -17,8 +17,11 @@
   "permissions": [
     "tabs",
     "webRequest",
-    "*://*/*",
-    "storage"
+    "storage",
+    "http://localhost:*/*",
+    "https://truestory.one/*",
+    "https://truestory.appspot.com/*",
+    "https://develop-dot-truestory.appspot.com/*"
   ],
   "browser_action": {
     "default_icon": {
