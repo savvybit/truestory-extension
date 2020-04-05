@@ -20,10 +20,14 @@ var headers = {
 }
 
 
-function loadAll() {
-    for (var idx = 0; idx < toLoad.length; ++idx) {
-        toLoad[idx]();
-    }
+function loadAll(idx) {
+  if (idx >= toLoad.length) {
+    return;
+  }
+
+  toLoad[idx]().done(function () {
+    loadAll(idx + 1);
+  });
 }
 
 
@@ -108,9 +112,22 @@ function addHeaders(xhr) {
 }
 
 
+function syncPromise(wrapped) {
+  return function() {
+    var def = $.Deferred();
+    wrapped.apply(this, arguments);
+    def.resolve();
+    return def.promise();
+  }
+}
+
+
 $.ajaxSetup({
   beforeSend: addHeaders
 });
 
-toLoad.push(setUpTabs, tieTabLinks, miscSetup);
-$(loadAll);
+var syncFuncs = [setUpTabs, tieTabLinks, miscSetup].map(func => syncPromise(func));
+toLoad.push(...syncFuncs);
+$(function () {
+  loadAll(0);
+});

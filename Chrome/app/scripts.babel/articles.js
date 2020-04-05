@@ -123,4 +123,4 @@ function articlesTab() {
 }
 
 
-toLoad.push(articlesTab);
+toLoad.push(syncPromise(articlesTab));
