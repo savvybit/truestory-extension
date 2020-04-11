@@ -101,7 +101,7 @@ function miscSetup() {
   // Going to Home when clicking the logo.
   $('a#homeLink').attr('href', appUrl('home'));
   // Set-up the premium URL for getting pro when reaching the request limit.
-  $('a#premiumLink').attr('href', appUrl('premium'));
+  $('a.premium-link').attr('href', appUrl('premium'));
 }
 
 
