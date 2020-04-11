@@ -73,10 +73,10 @@
             <p><strong>Wow!</strong></p>
             <small>
               You really like our product! Also you reached your maximum number of
-              requests for today.
+              requests for today, come back tomorrow.
               <br>
               <em>
-                Enable <a href="#" id="premiumLink" target="_blank">premium</a> access in
+                Enable <a href="#" class="premium-link" target="_blank">premium</a> access in
                 order to continue at a higher limit.
               </em>
             </small>
@@ -86,22 +86,37 @@
         <!-- Settings content. -->
         <div class="tab-pane fade" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab">
           <div class="row">
-            <label class="col-3 text-left" for="token">Token</label>
+            <label class="col-4 text-left" for="token">Access token</label>
             <div class="col-3 text-right ml-auto">
               <small id="savedText" class="text-success d-none">
                 <i class="fas fa-check"></i> Saved
               </small>
             </div>
           </div>
-          <input type="text" class="form-control" id="token" placeholder="Leave blank for default">
+          <input type="text" class="form-control" id="token" placeholder="Leave blank for default token">
+          <div class="mt-4">
+            <small class="text-muted">
+              This key gets you access into our platform and also tracks the number of daily successful queries.
+              <br>
+              <em>
+                For increasing the limit, get your own private token
+                <a href="#" class="premium-link" target="_blank">now</a>!
+              </em>
+            </small>
+          </div>
         </div>
 
         <!-- About content. -->
         <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
           <em>Whitelist</em>
           <div class="vscroll-md" id="sourceList"></div>
-          <div class="pt-4">
-            <small class="text-muted"><em>truestory.one</em></small>
+          <div class="mt-4">
+            <small class="text-muted">
+              <a href="https://truestory.typeform.com/to/Xo5aUF" target="_blank">
+                feedback
+              </a>
+              | hello@truestory.one
+            </small>
           </div>
         </div>
       </div>
