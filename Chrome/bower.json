@@ -6,7 +6,8 @@
     "jquery": "^3.4.1",
     "bootstrap": "^4.3.1",
     "fontawesome": "^5.8.2",
-    "mustache": "^4.0.1"
+    "mustache": "^4.0.1",
+    "googlefonts": "https://fontia.royally.pw/googleFonts/googlefonts?family=Patua+One"
   },
   "devDependencies": {},
   "overrides": {
